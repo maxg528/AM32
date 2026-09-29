@@ -1803,9 +1803,11 @@ int main(void)
     initAfterJump();
 #else
     initAfterJump();
-
+  
+#ifdef GEN_64K_G071
     RCC->APBENR2 |= RCC_APBENR2_SYSCFGEN;
     SYSCFG->CFGR1 |= SYSCFG_CFGR1_PA11_RMP | SYSCFG_CFGR1_PA12_RMP;
+#endif
   
     checkDeviceInfo();
     initCorePeripherals();
