@@ -35,7 +35,7 @@
 // #define G071ENABLE
 // #define G071_OPEN_DRAIN
 // #define G071_OPEN_DRAIN_B
- #define GEN_64K_G071
+// #define GEN_64K_G071
 // define  DT120_G071
 
 // #define WRAITH32_F421
