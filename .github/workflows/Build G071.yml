@@ -1,0 +1,25 @@
+name: Build G071
+
+on:
+  push:
+  workflow_dispatch:   # adds a manual "Run workflow" button
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ARM toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-arm-none-eabi make
+
+      - name: Build
+        run: make AM32_YOURBOARD_G071
+
+      - name: Upload firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware
+          path: obj/*.hex
